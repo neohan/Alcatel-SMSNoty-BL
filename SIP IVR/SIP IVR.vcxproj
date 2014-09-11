@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0009B193-B349-4DDB-AFEF-6341B1712D3B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SIPIVR</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>sipivrd</TargetName>
+    <IncludePath>C:\sqlite-src;C:\3rdLibs\apache-log4cxx-0.10.0\src\main\include;C:\3rdLibs\ACE_wrappers;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\sqlite-dll-win32-x86-3080500;C:\3rdLibs\ACE_wrappers\lib;C:\3rdLibs\apache-log4cxx-0.10.0\projects\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>sipivr</TargetName>
+    <IncludePath>C:\sqlite-src;C:\3rdLibs\apache-log4cxx-0.10.0\src\main\include;C:\3rdLibs\ACE_wrappers;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\sqlite-dll-win32-x86-3080500;C:\3rdLibs\ACE_wrappers\lib;C:\3rdLibs\apache-log4cxx-0.10.0\projects\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\sofia-sip-1.12.11\win32;C:\sofia-sip-1.12.11\libsofia-sip-ua\su;C:\sofia-sip-1.12.11\libsofia-sip-ua\ipt;C:\sofia-sip-1.12.11\libsofia-sip-ua\sresolv;C:\sofia-sip-1.12.11\libsofia-sip-ua\bnf;C:\sofia-sip-1.12.11\libsofia-sip-ua\url;C:\sofia-sip-1.12.11\libsofia-sip-ua\msg;C:\sofia-sip-1.12.11\libsofia-sip-ua\sip;C:\sofia-sip-1.12.11\libsofia-sip-ua\nta;C:\sofia-sip-1.12.11\libsofia-sip-ua\nua;C:\sofia-sip-1.12.11\libsofia-sip-ua\iptsec;C:\sofia-sip-1.12.11\libsofia-sip-ua\http;C:\sofia-sip-1.12.11\libsofia-sip-ua\nth;C:\sofia-sip-1.12.11\libsofia-sip-ua\nea;C:\sofia-sip-1.12.11\libsofia-sip-ua\sdp;C:\sofia-sip-1.12.11\libsofia-sip-ua\soa;C:\sofia-sip-1.12.11\libsofia-sip-ua\stun;C:\sofia-sip-1.12.11\libsofia-sip-ua\tport;C:\emiplib\emiplib-1.1.1\src\core;C:\emiplib\emiplib-1.1.1\win32;C:\emiplib\build\emiplib\src\core;C:\emiplib\emiplib-1.1.1\src\components\input;C:\emiplib\emiplib-1.1.1\src\components\output;C:\emiplib\emiplib-1.1.1\src\components\timer;C:\emiplib\emiplib-1.1.1\src\components\mixer;C:\emiplib\emiplib-1.1.1\src\components\io;C:\emiplib\emiplib-1.1.1\src\components\transmission;C:\emiplib\emiplib-1.1.1\src\components\transform;C:\emiplib\emiplib-1.1.1\src\components\codec;C:\emiplib\emiplib-1.1.1\src\sessions;C:\emiplib\emiplib-1.1.1\src\util;C:\emiplib\emiplib-1.1.1\src\thirdparty\gsm\inc;C:\emiplib\emiplib-1.1.1\src\thirdparty\lpc;C:\emiplib\emiplib-1.1.1\src\thirdparty\tinyjpeg;C:\emiplib\libs\jthread\include;C:\emiplib\libs\jrtplib\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sqlite3.lib;emiplib_d.lib;jthread_d.lib;jrtplib_d.lib;libsofia_sip_ua.lib;log4cxx.lib;ACEd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\sofia-sip-1.12.11\win32\libsofia-sip-ua\Debug;C:\emiplib\libs\emiplib\lib;C:\emiplib\libs\jthread\lib;C:\emiplib\libs\jrtplib\lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\sofia-sip-1.12.11\win32;C:\sofia-sip-1.12.11\libsofia-sip-ua\su;C:\sofia-sip-1.12.11\libsofia-sip-ua\ipt;C:\sofia-sip-1.12.11\libsofia-sip-ua\sresolv;C:\sofia-sip-1.12.11\libsofia-sip-ua\bnf;C:\sofia-sip-1.12.11\libsofia-sip-ua\url;C:\sofia-sip-1.12.11\libsofia-sip-ua\msg;C:\sofia-sip-1.12.11\libsofia-sip-ua\sip;C:\sofia-sip-1.12.11\libsofia-sip-ua\nta;C:\sofia-sip-1.12.11\libsofia-sip-ua\nua;C:\sofia-sip-1.12.11\libsofia-sip-ua\iptsec;C:\sofia-sip-1.12.11\libsofia-sip-ua\http;C:\sofia-sip-1.12.11\libsofia-sip-ua\nth;C:\sofia-sip-1.12.11\libsofia-sip-ua\nea;C:\sofia-sip-1.12.11\libsofia-sip-ua\sdp;C:\sofia-sip-1.12.11\libsofia-sip-ua\soa;C:\sofia-sip-1.12.11\libsofia-sip-ua\stun;C:\sofia-sip-1.12.11\libsofia-sip-ua\tport;C:\emiplib\emiplib-1.1.1\src\core;C:\emiplib\emiplib-1.1.1\win32;C:\emiplib\build\emiplib\src\core;C:\emiplib\emiplib-1.1.1\src\components\input;C:\emiplib\emiplib-1.1.1\src\components\output;C:\emiplib\emiplib-1.1.1\src\components\timer;C:\emiplib\emiplib-1.1.1\src\components\mixer;C:\emiplib\emiplib-1.1.1\src\components\io;C:\emiplib\emiplib-1.1.1\src\components\transmission;C:\emiplib\emiplib-1.1.1\src\components\transform;C:\emiplib\emiplib-1.1.1\src\components\codec;C:\emiplib\emiplib-1.1.1\src\sessions;C:\emiplib\emiplib-1.1.1\src\util;C:\emiplib\emiplib-1.1.1\src\thirdparty\gsm\inc;C:\emiplib\emiplib-1.1.1\src\thirdparty\lpc;C:\emiplib\emiplib-1.1.1\src\thirdparty\tinyjpeg;C:\emiplib\libs\jthread\include;C:\emiplib\libs\jrtplib\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>sqlite3.lib;ws2_32.lib;emiplib.lib;jthread.lib;jrtplib.lib;libsofia_sip_ua.lib;log4cxx.lib;ACEd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\sofia-sip-1.12.11\win32\libsofia-sip-ua\Release;C:\emiplib\libs\emiplib\lib;C:\emiplib\libs\jthread\lib;C:\emiplib\libs\jrtplib\lib</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="callflowmgr.cpp" />
+    <ClCompile Include="config.cpp" />
+    <ClCompile Include="Daemon.cpp" />
+    <ClCompile Include="db.cpp" />
+    <ClCompile Include="eventobjhelper.cpp" />
+    <ClCompile Include="playnode.cpp" />
+    <ClCompile Include="session.cpp" />
+    <ClCompile Include="sipivr.cpp" />
+    <ClCompile Include="sofia.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="callflowmgr.hpp" />
+    <ClInclude Include="config.hpp" />
+    <ClInclude Include="constvals.hpp" />
+    <ClInclude Include="Daemon.hpp" />
+    <ClInclude Include="db.hpp" />
+    <ClInclude Include="eventobjhelper.hpp" />
+    <ClInclude Include="lock.h" />
+    <ClInclude Include="playnode.hpp" />
+    <ClInclude Include="session.hpp" />
+    <ClInclude Include="sofia.hpp" />
+    <ClInclude Include="ThreadSafeQueue.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

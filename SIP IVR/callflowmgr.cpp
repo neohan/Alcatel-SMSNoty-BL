@@ -90,7 +90,8 @@ void CallFlowProcess::threadfunc(void *)
 					}
 				}
 			}
-			LOG4CXX_INFO(g_callflowLog,  sscallflow.str().c_str());
+			if ( sscallflow.str().length() > 0 )
+				LOG4CXX_INFO(g_callflowLog,  sscallflow.str().c_str());
 			Sleep(50);
 			continue;
 		}
@@ -139,7 +140,7 @@ void CallFlowProcess::threadfunc(void *)
 				else
 				{
 					sssdp.str("");
-					sssdp << "s=Orange 1 release 1.0.0  stamp 71236\nc=IN IP4 192.168.77.168\nm=audio " << localport <<" RTP/AVP 0\na=rtpmap:0 PCMU/8000\na=fmtp:101 0-15\na=sendrecv\n";
+					sssdp << "s=Orange 1 release 1.0.0  stamp 71236\nc=IN IP4 192.168.77.168\nm=audio " << localport <<" RTP/AVP 0 101\na=rtpmap:0 PCMU/8000\na=rtpmap:101 telephone-event/8000\na=fmtp:101 0-15\na=sendrecv\n";
 					nua_respond(eventobj->nh_, SIP_200_OK, SOATAG_AUDIO_AUX("telephone-event"),
 								SOATAG_USER_SDP_STR(sssdp.str().c_str()), TAG_END());
 					sscallflow << PREFIX_PER_LOG_LINE << "answer the call" << SUFIX_PER_LOG_LINE
@@ -168,7 +169,6 @@ void CallFlowProcess::threadfunc(void *)
 			{
 				if ( flowtype == "blacklist" )
 				{
-					SessMgrSingleton->deletePlayNode(eventobj->callid_);
 					nua_handle_t * nuahandle = nua_handle_by_call_id(SofiaSingleton->nua_, eventobj->callid_.c_str());
 					if ( nuahandle )
 					{
@@ -203,6 +203,15 @@ void CallFlowProcess::threadfunc(void *)
 										<< "cannt send BYE sip message, because cannt find nua_handle_t by callid"
 										<< SUFIX_PER_LOG_LINE;
 					}
+					else if ( status == "play1inputagain" )
+					{
+						SessMgrSingleton->plusPlay1Times(eventobj->callid_);
+						SessMgrSingleton->setSessionRTPInfo(eventobj->callid_, 0.02);
+						SessMgrSingleton->setSessionFlowStatus(eventobj->callid_, "play1");
+						SessMgrSingleton->setWAVFile(eventobj->callid_, "InputNotifyedPhoneNo.wav");
+						SessMgrSingleton->startPlay(eventobj->callid_);
+						sscallflow << PREFIX_PER_LOG_LINE << "status change to play1, play InputNotifyedPhoneNo.wav" << SUFIX_PER_LOG_LINE;
+					}
 					else
 						sscallflow << PREFIX_PER_LOG_LINE << "no more action" << SUFIX_PER_LOG_LINE;
 				}
@@ -218,7 +227,12 @@ void CallFlowProcess::threadfunc(void *)
 						SessMgrSingleton->clearKeypressed(eventobj->callid_);
 						if ( eventobj->key_ == "11" )
 						{
-
+							SessMgrSingleton->deletePlayNode(eventobj->callid_);
+							SessMgrSingleton->setSessionRTPInfo(eventobj->callid_, 0.02);
+							SessMgrSingleton->setSessionFlowStatus(eventobj->callid_, "play1inputagain");
+							SessMgrSingleton->setWAVFile(eventobj->callid_, "InputAgain.wav");
+							SessMgrSingleton->startPlay(eventobj->callid_);
+							sscallflow << PREFIX_PER_LOG_LINE << "status change to play1inputagain, play InputAgain.wav" << SUFIX_PER_LOG_LINE;
 						}
 						else
 						{
